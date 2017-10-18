@@ -1,51 +1,95 @@
 <template>
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <img src="../../common/image/logo.png" alt="logo"/>
-        </a>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="animated zoomIn active">首页</li>
-          <li class="animated zoomIn">
-            <router-link to="/product">产品</router-link></li>
-          <li class="animated zoomIn">服务</li>
-          <li class="animated zoomIn">关于</li>
-          <li class="animated zoomIn">下载</li>
-          <li class="animated zoomIn">登录 / 注册</li>
-        </ul>
-      </div>
+  <header class="navbar">
+    <div class="logo">
+      <img src="../../common/image/logo.png" alt="领投者" class="img-responsive" />
     </div>
-  </nav>
-
+    <nav class="menu">
+      <ul>
+        <li v-for="(item,index) in navList" :key="item.index" @click="jump(index)">
+          {{item.menu}}
+          <img v-if="index==5" src=""></img>
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+export default {
+  data() {
+    return {
+      navList: [
+        { menu: '首页' },
+        { menu: '产品' },
+        { menu: '服务' },
+        { menu: '关于' },
+        { menu: '下载' },
+        { menu: '登录 / 注册' }
+      ]
+    }
+  },
+  methods: {
+    jump(index) {
+      if (index == 0) {
+        this.$router.push({ name: 'start' });
+      } else if (index == 1) {
+        this.$router.push({ name: 'product' });
+      } else if (index == 2) {
+        this.$router.push({ name: 'serve' });
+      } else if (index == 3) {
+        this.$router.push({ name: 'about' });
+      } else {
+        this.$router.push({ name: 'download' });
+      }
+    }
+  }
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  @import '../../common/styles/variable.styl';
-  .navbar
+@import '../../common/styles/variable.styl';
+header {
+    width: 100%
+    height: 70px
+    position: fixed
     background: $nav-color
-    height: 80px
-    line-height 80px
-    img
-      line-height 80px
-      padding-top 12px
-      padding-left 50px
-    ul
-      float right
-      padding-right 100px
-    ul > li
-      float left
-      text-decoration none
-      color $white
-      height 80px
-      width 110px
-      text-align center
-      font-size MicrosoftYaHei
-      cursor pointer
-    .active
-      background rgba(225, 225, 225, 0.15)
+    .logo {
+        position: fixed
+        top: 9px
+        left: 50px
+    }
+    ul {
+        float: right
+        padding-right: 100px
+          >li {
+              float: left
+              color: $white
+              height: 70px
+              width: 110px
+              text-align: center
+              line-height: 70px
+              cursor: pointer 
+              &:hover {
+                background: rgba(225, 225, 225, 0.15)
+              }
+        }
+    }
+    @media print screen and (max-width:1080px) {
+      ul {
+        float: right
+        padding-right: 100px
+          >li {
+              color: $white
+              height: 70px
+              width: 110px
+              text-align: center
+              line-height: 70px
+              cursor: pointer 
+              &:hover {
+                background: rgba(225, 225, 225, 0.15)
+              }
+        }
+      }
+    }
+}
 </style>

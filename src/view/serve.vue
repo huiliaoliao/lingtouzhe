@@ -8,5 +8,5 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import '../common/styles/variable.styl';
-
 </style>
+

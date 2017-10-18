@@ -1,5 +1,5 @@
 <template>
-  <div class="start" @click="pathTo">
+  <div  class="start" @click="pathTo">
     我是关于
   </div>
 </template>
