@@ -4,7 +4,7 @@ import router from './router'
 import $ from 'jquery'
 import './common/styles/index.styl'
 import 'element-ui/lib/theme-default/index.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'animate.css'
 
 Vue.config.productionTip = false
