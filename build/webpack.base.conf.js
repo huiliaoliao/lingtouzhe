@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+var webpack = require('webpack');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -27,7 +28,9 @@ module.exports = {
       'assets': resolve('src/assets'),
       'common': resolve('src/common'),
       'components': resolve('src/components'),
-      'view': resolve('src/view')
+      'view': resolve('src/view'),
+      'bootstrap':resolve('src/assets/bootstrap'),
+       jquery:'jquery/src/jquery'
     }
   },
   module: {
@@ -66,6 +69,14 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
-    ]
-  }
+    ],
+
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "windows.jQuery": "jquery"
+    })
+  ],
 }
