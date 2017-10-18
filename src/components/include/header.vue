@@ -27,7 +27,8 @@
         </a>
         <ul class="nav navbar-nav navbar-right">
           <li class="animated zoomIn active">首页</li>
-          <li class="animated zoomIn">产品</li>
+          <li class="animated zoomIn">
+            <router-link to="/product">产品</router-link></li>
           <li class="animated zoomIn">服务</li>
           <li class="animated zoomIn">关于</li>
           <li class="animated zoomIn">下载</li>
@@ -52,8 +53,10 @@
     img
       line-height 80px
       padding-top 12px
+      padding-left 50px
     ul
       float right
+      padding-right 100px
     ul > li
       float left
       text-decoration none
