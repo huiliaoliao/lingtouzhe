@@ -1,68 +1,74 @@
 <template>
-  <div class="footer">
-    <div class="footer-top">
-      <ul class="breadcrumb">
-        <li><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">移动端</a></li>
-        <li><a href="http://www.bj.cyberpolice.cn/index.do">首页</a></li>
-        <li><a href="https://credit.cecdc.com/CX20120111001803001836.html">产品</a></li>
-        <li><a href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005">服务</a></li>
-        <li><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">移动端</a></li>
-        <li><a href="http://www.bj.cyberpolice.cn/index.do">下载</a></li>
-        <li><a href="https://credit.cecdc.com/CX20120111001803001836.html">关于</a></li>
-        <li><a href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005">
-          <img src="" alt="">
-        </a></li>
-        <li><a href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005">
-          <img src="" alt="">
-        </a></li>
-      </ul>
+  <nav id="nav" class="navbar navbar-default">
+    <div class="container">
+      <div class="footer-footer-main">
+        <div class="row">
+          <ul class="col-xs-10">
+            <li v-for="list in liList">
+              <a href=""> {{ list.li }} </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="#">
+          <img src="../../common/image/start/weChat.png" alt="">
+        </a>
+        <a href="#">
+          <img src="../../common/image/start/microblog.png" alt="">
+        </a>
+      </div>
     </div>
-
-    <div class="footer-bottom">
-      <ul class="breadcrumb">
-        <li><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">移动端</a></li>
-        <li><a href="http://www.bj.cyberpolice.cn/index.do">首页</a></li>
-        <li><a href="https://credit.cecdc.com/CX20120111001803001836.html">产品</a></li>
-        <li><a href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005">服务</a></li>
-        <li><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026">移动端</a></li>
-        <li><a href="http://www.bj.cyberpolice.cn/index.do">下载</a></li>
-        <li><a href="https://credit.cecdc.com/CX20120111001803001836.html">关于</a></li>
-        <li><a href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005">
-          <img src="" alt="">
-        </a></li>
-        <li><a href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005">
-          <img src="" alt="">
-        </a></li>
-      </ul>
-    </div>
-
-  </div>
-
+  </nav>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  export default {
+    data() {
+      return {
+        liList: [
+          {li: '移动端111111111111'},
+          {li: '首页'},
+          {li: '产品'},
+          {li: '服务'},
+          {li: '下载'},
+          {li: '关于'}
+        ],
+        bottomList: [
+          {li: '京 ICP 备11017824号-4&nbsp;|&nbsp;京 ICP 备11017824号-4'},
+          {li: '京 ICP 备11017824号-4&nbsp;|&nbsp;京 ICP 备11017824号-4'},
+        ]
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import '../../common/styles/variable.styl';
-  .footer
-    background: $nav-background
-  .footer-top
-    height: 91px
-    line-height 91px
-    border-bottom: 1px solid $nav-color
-  .footer-bottom
-    height: 91px
-    line-height 91px
-  ul
-    float left
-    padding-left 390px
-  li
-    float left
-    margin-left 70px
-  a
-    color $nav-color = #3d4a5b
-    font-size 14px
+  .navbar
+    background $nav-background
 
+  .footer-main
+    height: 80px
+    line-height 80px
+    border-bottom: 1px solid $nav-color
+    min-width 400px
+
+  .footer-social
+    height: 80px
+    line-height 80px
+    min-width 360
+    padding 20px auto
+
+  ul
+    display flex
+    flex-direction row
+  ul li
+    float left
+  a > img
+    margin-right 36px
+  a
+    color #fff
+    font-size 14px
+    padding 0 10px
 </style>
